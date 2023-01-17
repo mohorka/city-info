@@ -10,6 +10,7 @@ info about any city
 cd path/to/cloned/repo
 poetry install
 poetry shell
+pre_commit install
 ```
 
 ### Run the app
