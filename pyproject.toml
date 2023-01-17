@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "city-info"
+version = "0.1.0"
+description = ""
+authors = ["mohorka <victoria2000dzuba@gmail.com>"]
+readme = "README.md"
+packages = [{include = "city_info"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "1.5.2"
+numpy = "1.24.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "2.21.0"
+pytest = "7.2.1"
+
+[tool.isort]
+profile = "black"
+
+[tool.pydocstyle]
+convention = "pep257"
+add-select = "D212"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

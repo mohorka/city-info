@@ -1,0 +1,41 @@
+default_stages:
+  - commit
+  - push
+repos:
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v1.4.1
+    hooks:
+      - id: add-trailing-comma
+  - repo: https://github.com/myint/docformatter
+    rev: v1.3.1
+    hooks:
+      - id: docformatter
+        language: python
+  - repo: https://github.com/python/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+        language_version: python3
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: isort (python)
+  - repo: https://github.com/PyCQA/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1
+    hooks:
+      - id: pydocstyle
+        additional_dependencies:
+          - toml==0.10.2  # необходимая зависимость, чтобы pydocstyle мог читать конфиг из pyproject.toml
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: check-docstring-first
+      - id: check-merge-conflict
+        stages:
+          - push
+      - id: trailing-whitespace
